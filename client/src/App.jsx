@@ -1,6 +1,8 @@
 ﻿import { useState, useRef, useEffect } from 'react'
 import './App.css'
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+
 function App() {
   const [messages, setMessages] = useState([
     {
@@ -45,7 +47,7 @@ function App() {
     setIsLoading(true)
 
     try {
-      const response = await fetch('http://localhost:3001/api/chat', {
+      const response = await fetch(`${API_URL}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
